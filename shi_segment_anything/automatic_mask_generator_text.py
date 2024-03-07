@@ -200,7 +200,7 @@ class SamAutomaticMaskGenerator:
     
     def _generate_similarity(self, image, ref_bbox, iter=1):
         img_size = image.shape[:2]
-        ref_bbox = torch.tensor(ref_bbox, device=self.predictor.device)
+        ref_bbox = torch.tensor(ref_bbox, device=self.predictor.device, dtype=torch.float32)
         transformed_boxes = self.predictor.transform.apply_boxes_torch(ref_bbox, img_size)
         masks, iou_preds, low_res_masks = self.predictor.predict_torch(
             point_coords=None,
