@@ -1,19 +1,14 @@
 import numpy as np
 import torch.nn.functional as F
-from torchvision.transforms.functional import normalize
 import math
 from torchvision import transforms
 import torch
 import cv2
 import matplotlib
 import matplotlib.pyplot as plt
-import matplotlib.patches as patches
 matplotlib.use('agg')
-import scipy.spatial as T
-from scipy.ndimage.filters import gaussian_filter
 import clip
 from skimage.measure import label, find_contours
-from selective_search import selective_search
 from shi_segment_anything import sam_model_registry, SamPredictor
 
 preprocess =  transforms.Compose([

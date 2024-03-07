@@ -1,21 +1,15 @@
 import os
-import torch
-import torchvision
+from os.path import exists
 import argparse
 import json
 import numpy as np
-import os
-import copy
-import time
 import cv2
 from tqdm import tqdm
-from os.path import exists,join
-from PIL import Image
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import clip
-from shi_segment_anything import sam_model_registry, SamPredictor
+from shi_segment_anything import sam_model_registry
 from shi_segment_anything.automatic_mask_generator import SamAutomaticMaskGenerator
 from utils import *
 
@@ -117,7 +111,7 @@ if __name__=="__main__":
         SRE = SRE+err**2/gt_cnt
 
         #Mask visualization
-        """
+        
         fig = plt.figure()
         plt.axis('off')
         ax = plt.gca()
@@ -125,8 +119,8 @@ if __name__=="__main__":
         ax.yaxis.set_major_locator(matplotlib.ticker.NullLocator())
         plt.imshow(image)
         show_anns(masks, plt.gca())
-        plt.savefig('%s/%s/%03d_mask.png'%(args.output_dir,args.test_split,i), bbox_inches='tight', pad_inches=0)
-        plt.close()#"""
+        plt.savefig('%s/%s/%s/%03d_mask.png'%(args.output_dir,args.test_split,args.prompt_type,i), bbox_inches='tight', pad_inches=0)
+        plt.close()
 
     MAE = MAE/len(im_ids)
     RMSE = math.sqrt(RMSE/len(im_ids))

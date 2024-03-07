@@ -6,18 +6,14 @@
 
 import numpy as np
 import math
-import cv2
 import torch
-import copy
-from torchvision.ops.boxes import batched_nms, box_area  # type: ignore
+from torchvision.ops.boxes import batched_nms  # type: ignore
 
 from typing import Any, Dict, List, Optional, Tuple
 
 import matplotlib
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 from skimage.transform import resize
-from skimage import img_as_bool
 from utils import *
 
 from .modeling import Sam
@@ -29,17 +25,11 @@ from .utils.amg import (
     batched_mask_to_box,
     box_xyxy_to_xywh,
     build_point_grid,
-    build_all_layer_point_grids,
     calculate_stability_score,
     coco_encode_rle,
-    generate_crop_boxes,
-    is_box_near_crop_edge,
     mask_to_rle_pytorch,
     remove_small_regions,
     rle_to_mask,
-    uncrop_boxes_xyxy,
-    uncrop_masks,
-    uncrop_points,
 )
 
 
