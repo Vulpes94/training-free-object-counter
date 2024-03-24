@@ -11,13 +11,17 @@
 2. Download the <a href="https://drive.google.com/file/d/1ymDYrGs9DSRicfZbSCDiOu0ikGDh5k6S/view?usp=sharing" target="_blank">FSC-147</a> and <a href="https://drive.google.com/file/d/0BwSzgS8Mm48Ud2h2dW40Wko3a1E/view?usp=sharing&resourcekey=0-34K_uP-vYM7EWq0Q2iIVaw" target="_blank">CARPK</a> datasets and save them to the folder 'dataset' <br>
 3. Run 
 
-```
+```sh
 python main-fsc147.py --test-split='test' --prompt-type='box' --device='cuda:0'
 ```
 or
 
-```
+```sh
 python main-carpk.py --test-split='test' --prompt-type='box' --device='cuda:0'
+```
+or Apple Silicon M Series
+```sh
+python main-fsc147.py --test-split='test' --prompt-type='box' --device='mps'
 ```
 
 <h2> Success and failure results </h2>
